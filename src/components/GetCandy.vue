@@ -1,6 +1,7 @@
 <template>
   <div>
     <button v-if="error === true">Retry</button>
+    <p v-if="candies.length === 0">No Candies To Display</p>
     <article v-for="(candy, i) in candies" :key="i">
       <h3>{{ candy["name"] }}</h3>
       <p>{{ candy[`description`] }}</p>
@@ -42,6 +43,7 @@ export default {
   },
   mounted() {
     this.get_candy();
+    this.$root.$on(`reload_candy`, this.get_candy);
   },
 };
 </script>

@@ -19,7 +19,6 @@ export default {
   },
   methods: {
     submit_candy() {
-      this.message = "loading";
       axios
         .request({
           url: `${process.env.VUE_APP_BASE_DOMAIN}/api/candy`,
@@ -32,7 +31,8 @@ export default {
         })
         .then((res) => {
           res;
-          this.message = "Candy Upload Succesful";
+          this.message = undefined;
+          this.$root.$emit(`reload_candy`);
         })
         .catch((err) => {
           err;

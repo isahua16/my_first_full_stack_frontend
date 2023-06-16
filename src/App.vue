@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <page-header></page-header>
     <insert-candy></insert-candy>
     <get-candy></get-candy>
